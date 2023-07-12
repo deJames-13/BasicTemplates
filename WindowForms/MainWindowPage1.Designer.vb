@@ -119,7 +119,6 @@ Partial Class MainWindowPage1
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(782, 26)
         Me.txtSearch.TabIndex = 0
-        Me.txtSearch.Text = "Search"
         '
         'Panel18
         '

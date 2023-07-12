@@ -50,6 +50,9 @@
   <PropertyGroup>
     <ApplicationIcon>window_forms.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Guna UI WinForms\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
@@ -84,28 +87,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasicStylesForm1.Designer.vb">
+    <Compile Include="WindowForms\BasicStylesForm1.Designer.vb">
       <DependentUpon>BasicStylesForm1.vb</DependentUpon>
     </Compile>
-    <Compile Include="BasicStylesForm1.vb">
+    <Compile Include="WindowForms\BasicStylesForm1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BasicStylesForm2.Designer.vb">
+    <Compile Include="WindowForms\BasicStylesForm2.Designer.vb">
       <DependentUpon>BasicStylesForm2.vb</DependentUpon>
     </Compile>
-    <Compile Include="BasicStylesForm2.vb">
+    <Compile Include="WindowForms\BasicStylesForm2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginPage1.Designer.vb">
-      <DependentUpon>LoginPage1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="LoginPage1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainWindowPage1.Designer.vb">
+    <Compile Include="WindowForms\MainWindowPage1.Designer.vb">
       <DependentUpon>MainWindowPage1.vb</DependentUpon>
     </Compile>
-    <Compile Include="MainWindowPage1.vb">
+    <Compile Include="WindowForms\MainWindowPage1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -125,24 +122,39 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MyModules\DatabaseManager.vb" />
-    <Compile Include="SignUpForm.Designer.vb">
-      <DependentUpon>SignUpForm.vb</DependentUpon>
+    <Compile Include="WindowForms\TemplateElements\BasicSignUp.Designer.vb">
+      <DependentUpon>BasicSignUp.vb</DependentUpon>
     </Compile>
-    <Compile Include="SignUpForm.vb">
+    <Compile Include="WindowForms\TemplateElements\BasicSignUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\HomePage.Designer.vb">
+      <DependentUpon>HomePage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\HomePage.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\LoginPage1.Designer.vb">
+      <DependentUpon>LoginPage1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\LoginPage1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\SignUpPage2.Designer.vb">
+      <DependentUpon>SignUpPage2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\SignUpPage2.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BasicStylesForm1.resx">
+    <EmbeddedResource Include="WindowForms\BasicStylesForm1.resx">
       <DependentUpon>BasicStylesForm1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BasicStylesForm2.resx">
+    <EmbeddedResource Include="WindowForms\BasicStylesForm2.resx">
       <DependentUpon>BasicStylesForm2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage1.resx">
-      <DependentUpon>LoginPage1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainWindowPage1.resx">
+    <EmbeddedResource Include="WindowForms\MainWindowPage1.resx">
       <DependentUpon>MainWindowPage1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -151,11 +163,21 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUpForm.resx">
-      <DependentUpon>SignUpForm.vb</DependentUpon>
+    <EmbeddedResource Include="WindowForms\TemplateElements\BasicSignUp.resx">
+      <DependentUpon>BasicSignUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowForms\TemplateElements\HomePage.resx">
+      <DependentUpon>HomePage.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowForms\TemplateElements\LoginPage1.resx">
+      <DependentUpon>LoginPage1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowForms\TemplateElements\SignUpPage2.resx">
+      <DependentUpon>SignUpPage2.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -168,12 +190,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="baclground_portrait_1.jpg" />
     <None Include="Resources\baclground_portrait_2.jpg" />
     <None Include="Resources\icons8-user-64.png" />
     <None Include="Resources\icons8-password-key-96.png" />
     <None Include="Resources\icons8-password-key-24.png" />
     <Content Include="window_forms.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

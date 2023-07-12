@@ -70,7 +70,7 @@ Partial Class LoginPage1
         Me.Panel4.Controls.Add(Me.Panel5)
         Me.Panel4.Location = New System.Drawing.Point(119, 189)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Padding = New System.Windows.Forms.Padding(0, 10, 0, 0)
+        Me.Panel4.Padding = New System.Windows.Forms.Padding(0, 15, 0, 0)
         Me.Panel4.Size = New System.Drawing.Size(200, 50)
         Me.Panel4.TabIndex = 5
         '
@@ -78,7 +78,7 @@ Partial Class LoginPage1
         '
         Me.Panel9.Controls.Add(Me.TextBox1)
         Me.Panel9.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel9.Location = New System.Drawing.Point(0, 10)
+        Me.Panel9.Location = New System.Drawing.Point(0, 15)
         Me.Panel9.Margin = New System.Windows.Forms.Padding(10)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Padding = New System.Windows.Forms.Padding(5, 5, 5, 0)
@@ -260,7 +260,7 @@ Partial Class LoginPage1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.BasicTemplates.My.Resources.Resources.baclground_portrait_1
+        Me.BackColor = System.Drawing.Color.Azure
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(384, 561)
         Me.Controls.Add(Me.Panel11)

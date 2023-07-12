@@ -144,12 +144,14 @@ Public Module DatabaseManager
     Public Function Filter(table As String, column As String, value As String) As DataTable
         Dim dt As New DataTable
         Try
+
             OpenDB()
-            dt = ExecuteQuery($"SELECT * FROM {table} WHERE {column} = '{value}'", table).Tables(table)
+            dt = ExecuteQuery($"SELECT * FROM {table} WHERE {column} LIKE '%{value}%'", table).Tables(table)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
-            CloseDB()
+            'CloseDB()
         End Try
         Return dt
     End Function
