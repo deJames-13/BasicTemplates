@@ -2,29 +2,30 @@
 
 Public Module DatabaseManager
 
-    Public _connStr = ""
-    Public _dbConn As MySqlConnection
-    Public _dbCmd As MySqlCommand
-    Public _dtAdapter As MySqlDataAdapter
-    Public _dtReader As MySqlDataReader
-    Public _dtSet As DataSet
+    Public _mysqlString = ""
+    Public _sqlConn As MySqlConnection
+    Public _sqlCmd As MySqlCommand
+    Public _sqlAdapter As MySqlDataAdapter
+    Public _sqlReader As MySqlDataReader
+    Public _sqlSet As DataSet
+
 
 
     Public Sub ConnectDB(server As String, database As String, user As String, pass As String)
-        _connStr = $"DataSource={server};Database={database};User={user};Password={pass};"
-        _dbConn = New MySqlConnection(_connStr)
+        _mysqlString = $"DataSource={server};Database={database};User={user};Password={pass};"
+        _sqlConn = New MySqlConnection(_mysqlString)
         OpenDB()
     End Sub
 
     Public Sub OpenDB()
         Try
-            If _dbConn Is Nothing Then
+            If _sqlConn Is Nothing Then
                 Return
             End If
-            If _dbConn.State = ConnectionState.Open Then
-                _dbConn.Close()
+            If _sqlConn.State = ConnectionState.Open Then
+                _sqlConn.Close()
             End If
-            _dbConn.Open()
+            _sqlConn.Open()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -32,11 +33,11 @@ Public Module DatabaseManager
 
     Public Sub CloseDB()
         Try
-            If _dbConn Is Nothing Then
+            If _sqlConn Is Nothing Then
                 Return
             End If
-            If _dbConn.State = ConnectionState.Open Then
-                _dbConn.Close()
+            If _sqlConn.State = ConnectionState.Open Then
+                _sqlConn.Close()
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -44,22 +45,31 @@ Public Module DatabaseManager
     End Sub
 
     ' ExecuteQuery is used for SELECT
-    Public Function ExecuteQuery(query As String, Optional table As String = "main") As DataSet
+    Public Function ExecuteQuery(query As String, Optional table As String = "temp") As DataSet
         Try
             OpenDB()
-            _dbCmd = New MySqlCommand(query, _dbConn)
-            _dtAdapter = New MySqlDataAdapter(_dbCmd)
-            _dtSet = New DataSet
-            _dtAdapter.Fill(_dtSet, table)
-            _dtAdapter.Update(_dtSet, table)
+            _sqlCmd = New MySqlCommand(query, _sqlConn)
+            _sqlAdapter = New MySqlDataAdapter(_sqlCmd)
+            _sqlSet = New DataSet
+            _sqlAdapter.Fill(_sqlSet, table)
+            _sqlAdapter.Update(_sqlSet, table)
 
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
             CloseDB()
         End Try
-        Return _dtSet
+        Return _sqlSet
     End Function
+
+    ' Use a database and return the list 
+    Public Function UseDB(name As String) As DataTable
+        ExecuteNonQuery($"USE {name}")
+        Dim dt As DataTable = ExecuteQuery("SHOW TABLES").Tables(0)
+        Return dt
+    End Function
+
+
 
     ' Load table to DataGridView
     Public Function LoadTable(ByRef grid As DataGridView, table As String, Optional column As String = "*") As DataTable
@@ -85,8 +95,8 @@ Public Module DatabaseManager
         Dim id As Integer = 0
         Try
             OpenDB()
-            _dbCmd = New MySqlCommand("SELECT LAST_INSERT_ID()", _dbConn)
-            id = _dbCmd.ExecuteScalar()
+            _sqlCmd = New MySqlCommand("SELECT LAST_INSERT_ID()", _sqlConn)
+            id = _sqlCmd.ExecuteScalar()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -113,8 +123,8 @@ Public Module DatabaseManager
     Public Sub ExecuteNonQuery(query As String)
         Try
             OpenDB()
-            _dbCmd = New MySqlCommand(query, _dbConn)
-            _dbCmd.ExecuteNonQuery()
+            _sqlCmd = New MySqlCommand(query, _sqlConn)
+            _sqlCmd.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally

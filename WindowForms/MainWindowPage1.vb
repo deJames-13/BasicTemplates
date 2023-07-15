@@ -5,7 +5,14 @@ Public Class MainWindowPage1
 
     Private Sub MainWindowPage1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         currentTable = "tb_customers"
-        ConnectDB("localhost", "db_sqlgame", "root", "")
+        ConnectDB("localhost", "", "root", "")
+
+        ' to access table values from UseDB, do UseDB("name")(row)(column)
+        currentTable = UseDB("db_sqlgame")(1)(0) ' returns a datarow
+
+
+        'MsgBox(UseDB("db_sqlgame")(1).GetType.ToString)
+
         LoadTable(dtGridView1, currentTable)
         ' load columns to cbColumns
         cbColumns.Items.Clear()
@@ -13,6 +20,8 @@ Public Class MainWindowPage1
             cbColumns.Items.Add(col.HeaderText)
         Next
         cbColumns.SelectedIndex = 1
+
+
     End Sub
     Private Sub btnDebug_Click(sender As Object, e As EventArgs) Handles btnDebug.Click
 

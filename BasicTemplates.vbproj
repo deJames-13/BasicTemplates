@@ -87,6 +87,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyModules\DBConnection.vb" />
     <Compile Include="WindowForms\BasicStylesForm1.Designer.vb">
       <DependentUpon>BasicStylesForm1.vb</DependentUpon>
     </Compile>
@@ -122,28 +123,42 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MyModules\DatabaseManager.vb" />
-    <Compile Include="WindowForms\TemplateElements\BasicSignUp.Designer.vb">
+    <Compile Include="WindowForms\TemplateElements\Elements\ElementsDesign.Designer.vb">
+      <DependentUpon>ElementsDesign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\Elements\ElementsDesign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\TemplateElements\Home\ProductCard.vb" />
+    <Compile Include="WindowForms\TemplateElements\Home\HomeInteractions.vb" />
+    <Compile Include="WindowForms\TemplateElements\SignUp\BasicSignUp.Designer.vb">
       <DependentUpon>BasicSignUp.vb</DependentUpon>
     </Compile>
-    <Compile Include="WindowForms\TemplateElements\BasicSignUp.vb">
+    <Compile Include="WindowForms\TemplateElements\SignUp\BasicSignUp.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowForms\TemplateElements\HomePage.Designer.vb">
+    <Compile Include="WindowForms\TemplateElements\Home\HomePage.Designer.vb">
       <DependentUpon>HomePage.vb</DependentUpon>
     </Compile>
-    <Compile Include="WindowForms\TemplateElements\HomePage.vb">
+    <Compile Include="WindowForms\TemplateElements\Home\HomePage.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowForms\TemplateElements\LoginPage1.Designer.vb">
+    <Compile Include="WindowForms\TemplateElements\LogIn\LoginPage1.Designer.vb">
       <DependentUpon>LoginPage1.vb</DependentUpon>
     </Compile>
-    <Compile Include="WindowForms\TemplateElements\LoginPage1.vb">
+    <Compile Include="WindowForms\TemplateElements\LogIn\LoginPage1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WindowForms\TemplateElements\SignUpPage2.Designer.vb">
+    <Compile Include="WindowForms\TemplateElements\SignUp\SignUpPage2.Designer.vb">
       <DependentUpon>SignUpPage2.vb</DependentUpon>
     </Compile>
-    <Compile Include="WindowForms\TemplateElements\SignUpPage2.vb">
+    <Compile Include="WindowForms\TemplateElements\SignUp\SignUpPage2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WindowForms\Styled Components Form2.Designer.vb">
+      <DependentUpon>Styled Components Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WindowForms\Styled Components Form2.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -163,17 +178,23 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowForms\TemplateElements\BasicSignUp.resx">
+    <EmbeddedResource Include="WindowForms\TemplateElements\Elements\ElementsDesign.resx">
+      <DependentUpon>ElementsDesign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowForms\TemplateElements\SignUp\BasicSignUp.resx">
       <DependentUpon>BasicSignUp.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowForms\TemplateElements\HomePage.resx">
+    <EmbeddedResource Include="WindowForms\TemplateElements\Home\HomePage.resx">
       <DependentUpon>HomePage.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowForms\TemplateElements\LoginPage1.resx">
+    <EmbeddedResource Include="WindowForms\TemplateElements\LogIn\LoginPage1.resx">
       <DependentUpon>LoginPage1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WindowForms\TemplateElements\SignUpPage2.resx">
+    <EmbeddedResource Include="WindowForms\TemplateElements\SignUp\SignUpPage2.resx">
       <DependentUpon>SignUpPage2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WindowForms\Styled Components Form2.resx">
+      <DependentUpon>Styled Components Form2.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -194,8 +215,24 @@
     <None Include="Resources\icons8-user-64.png" />
     <None Include="Resources\icons8-password-key-96.png" />
     <None Include="Resources\icons8-password-key-24.png" />
+    <None Include="Resources\topPanelBG.png" />
+    <None Include="Resources\shopBtn.png" />
+    <None Include="Resources\cartBtn.png" />
+    <None Include="Resources\shopBtn1.png" />
+    <None Include="Resources\profileBtn.png" />
+    <None Include="Resources\settingsBtn.png" />
+    <None Include="Resources\sampleImage.png" />
+    <None Include="Resources\icons8-cart-64.png" />
+    <None Include="Resources\icons8-subtract-96.png" />
+    <None Include="Resources\icons8-plus-96.png" />
+    <None Include="WindowForms\TemplateElements\Home\img\sampleImage.png" />
+    <None Include="WindowForms\TemplateElements\Home\img\icons8-plus-96.png" />
+    <None Include="WindowForms\TemplateElements\Home\img\icons8-subtract-96.png" />
     <Content Include="window_forms.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="WindowForms\SamplePages\" />
+    <Folder Include="WindowForms\TemplateClasses\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
